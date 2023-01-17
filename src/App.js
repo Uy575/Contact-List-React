@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Contactcard from './component/Contact-card';
+import Contactdetail from './component/Contact-detail';
+import Editable from './component/Editable';
+import Fieldsforaddcontact from './component/Fields-for-add-contact';
+import Norecord from './component/No-record';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+      <Routes>
+       <Route path='/norecord' element = { <Norecord/>}></Route>
+       <Route path='/norecord/:addcontact' element = { <Fieldsforaddcontact/>}></Route>
+       <Route path='/' element = {<Contactcard/>}></Route>
+       <Route path='/contactdetail/:id' element = {<Contactdetail/>}></Route>
+       <Route path='/addcontact' element = {<Fieldsforaddcontact/>}></Route>
+       <Route path='contactdetail/:id/editable' element = {<Editable/>}></Route>
+
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
